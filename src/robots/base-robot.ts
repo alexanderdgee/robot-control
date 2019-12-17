@@ -13,24 +13,28 @@ class BaseRobot implements robot {
         this.x = x;
         this.y = y;
         for (let command of commandSequence) {
-            switch (command) {
-                case 'F':
-                    this.goForward();
-                    break;
-                case 'B':
-                    this.goBackward();
-                    break;
-                case 'L':
-                    this.goLeft();
-                    break;
-                case 'R':
-                    this.goRight();
-                    break;
-            }
+            this.handleCommand(command);
         }
         return {
             x: this.x,
             y: this.y
+        }
+    }
+
+    handleCommand(command: string): void {
+        switch (command) {
+            case 'F':
+                this.goForward();
+                break;
+            case 'B':
+                this.goBackward();
+                break;
+            case 'L':
+                this.goLeft();
+                break;
+            case 'R':
+                this.goRight();
+                break;
         }
     }
 
