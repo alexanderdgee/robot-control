@@ -18,6 +18,7 @@ class Mk3 extends Mk2 {
                     || commandMultiple > HEAT_THRESHOLD) {
                 throw new Error('Multiple higher than capacity encountered: aborting.')
             }
+            // TODO: this doesn't handle multiples before L / R / B commands correctly yet.
             this.multiple = commandMultiple;
         } else {
             super.handleCommand(command);
