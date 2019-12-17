@@ -4,7 +4,7 @@ import Mk2 = require('../../src/robots/mk2');
 
 describe('Basic navigation', function() {
     it('stays where it started', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 4, y: 7 };
         let commandSequence: string = '';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -15,7 +15,7 @@ describe('Basic navigation', function() {
     });
 
     it('stays where it started when rotating left', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 4, y: 7 };
         let commandSequence: string = 'L';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -26,7 +26,7 @@ describe('Basic navigation', function() {
     });
 
     it('stays where it started when rotating right', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 4, y: 7 };
         let commandSequence: string = 'R';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -37,7 +37,7 @@ describe('Basic navigation', function() {
     });
 
     it('reorients for each new navigation', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'R';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -50,7 +50,7 @@ describe('Basic navigation', function() {
     });
 
     it('initially moves north', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'F';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -61,7 +61,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves west after rotating left', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'LF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -72,7 +72,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves south after rotating left twice', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'LLF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -83,7 +83,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves east after rotating left three times', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'LLLF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -94,7 +94,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves north after rotating left four times', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'LLLLF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -105,7 +105,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves east after rotating right', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'RF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -116,7 +116,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves south after rotating right twice', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'RRF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -127,7 +127,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves west after rotating right three times', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'RRRF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -138,7 +138,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves north after rotating right four times', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'RRRRF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -149,7 +149,7 @@ describe('Basic navigation', function() {
     });
 
     it('moves south when going backward', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'B';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -163,7 +163,7 @@ describe('Basic navigation', function() {
 
 describe('Edge cases', function() {
     it('cannot go south below 0', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'LLFF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -172,7 +172,7 @@ describe('Edge cases', function() {
     });
 
     it('cannot go backwards below 0', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'BB';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -181,7 +181,7 @@ describe('Edge cases', function() {
     });
 
     it('cannot go west below 0', function() {
-        let robot = new Mk2();
+        let robot: Mk2 = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'LFF';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);

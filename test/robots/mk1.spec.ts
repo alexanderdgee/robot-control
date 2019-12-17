@@ -4,7 +4,7 @@ import Mk1 = require('../../src/robots/mk1');
 
 describe('Basic navigation', function() {
     it('stays where it started', function() {
-        let robot = new Mk1();
+        let robot: Mk1 = new Mk1();
         let start: Coordinate = { x: 4, y: 7 };
         let commandSequence: string = '';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -13,7 +13,7 @@ describe('Basic navigation', function() {
     });
 
     it('goes left', function() {
-        let robot = new Mk1();
+        let robot: Mk1 = new Mk1();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'L';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -22,7 +22,7 @@ describe('Basic navigation', function() {
     });
 
     it('goes right', function() {
-        let robot = new Mk1();
+        let robot: Mk1 = new Mk1();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'R';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -31,7 +31,7 @@ describe('Basic navigation', function() {
     });
 
     it('goes forward', function() {
-        let robot = new Mk1();
+        let robot: Mk1 = new Mk1();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'F';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -40,7 +40,7 @@ describe('Basic navigation', function() {
     });
 
     it('goes backward', function() {
-        let robot = new Mk1();
+        let robot: Mk1 = new Mk1();
         let start: Coordinate = { x: 1, y: 1 };
         let commandSequence: string = 'B';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -54,7 +54,7 @@ describe('Edge cases', function() {
     // or does it walk off the surface and throw an error?
     // TODO: resolve edge cases
     it('cannot go backward below 0', function() {
-        let robot = new Mk1();
+        let robot: Mk1 = new Mk1();
         let start: Coordinate = { x: 0, y: 1 };
         let commandSequence: string = 'BB';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
@@ -63,7 +63,7 @@ describe('Edge cases', function() {
     });
 
     it('cannot go left below 0', function() {
-        let robot = new Mk1();
+        let robot: Mk1 = new Mk1();
         let start: Coordinate = { x: 1, y: 0 };
         let commandSequence: string = 'LL';
         let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
