@@ -1,0 +1,11 @@
+{
+    "include": [
+        "./src/**/*"
+    ],
+    "compilerOptions": {
+        "outDir": "./build",
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es2017"
+    }
+}
