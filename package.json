@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "compile": "tsc",
+    "execute": "npm run-script compile && node build/index.js",
     "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json"
   },
   "repository": {
