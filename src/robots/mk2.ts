@@ -8,6 +8,12 @@ class Mk2 extends BaseRobot {
         return 'mk2';
     }
 
+    navigate(x: number, y: number, commandSequence: string): Coordinate {
+        this.facing.x = 0;
+        this.facing.y = 1;
+        return super.navigate(x, y, commandSequence);
+    }
+
     goForward(): void {
         if (!(this.x == 0 && this.facing.x == -1)) {
             this.x += this.facing.x;

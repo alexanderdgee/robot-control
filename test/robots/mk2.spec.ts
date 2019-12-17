@@ -36,6 +36,19 @@ describe('Basic navigation', function() {
         expect(robot.facing.y).toEqual(0);
     });
 
+    it('reorients for each new navigation', function() {
+        let robot = new Mk2();
+        let start: Coordinate = { x: 1, y: 1 };
+        let commandSequence: string = 'R';
+        let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
+        commandSequence = 'F';
+        endPosition = robot.navigate(endPosition.x, endPosition.y, commandSequence);
+        expect(endPosition.x).toEqual(1);
+        expect(endPosition.y).toEqual(2);
+        expect(robot.facing.x).toEqual(0);
+        expect(robot.facing.y).toEqual(1);
+    });
+
     it('initially moves north', function() {
         let robot = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
@@ -58,6 +71,39 @@ describe('Basic navigation', function() {
         expect(robot.facing.y).toEqual(0);
     });
 
+    it('moves south after rotating left twice', function() {
+        let robot = new Mk2();
+        let start: Coordinate = { x: 1, y: 1 };
+        let commandSequence: string = 'LLF';
+        let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
+        expect(endPosition.x).toEqual(1);
+        expect(endPosition.y).toEqual(0);
+        expect(robot.facing.x).toEqual(0);
+        expect(robot.facing.y).toEqual(-1);
+    });
+
+    it('moves east after rotating left three times', function() {
+        let robot = new Mk2();
+        let start: Coordinate = { x: 1, y: 1 };
+        let commandSequence: string = 'LLLF';
+        let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
+        expect(endPosition.x).toEqual(2);
+        expect(endPosition.y).toEqual(1);
+        expect(robot.facing.x).toEqual(1);
+        expect(robot.facing.y).toEqual(0);
+    });
+
+    it('moves north after rotating left four times', function() {
+        let robot = new Mk2();
+        let start: Coordinate = { x: 1, y: 1 };
+        let commandSequence: string = 'LLLLF';
+        let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
+        expect(endPosition.x).toEqual(1);
+        expect(endPosition.y).toEqual(2);
+        expect(robot.facing.x).toEqual(0);
+        expect(robot.facing.y).toEqual(1);
+    });
+
     it('moves east after rotating right', function() {
         let robot = new Mk2();
         let start: Coordinate = { x: 1, y: 1 };
@@ -67,6 +113,39 @@ describe('Basic navigation', function() {
         expect(endPosition.y).toEqual(1);
         expect(robot.facing.x).toEqual(1);
         expect(robot.facing.y).toEqual(0);
+    });
+
+    it('moves south after rotating right twice', function() {
+        let robot = new Mk2();
+        let start: Coordinate = { x: 1, y: 1 };
+        let commandSequence: string = 'RRF';
+        let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
+        expect(endPosition.x).toEqual(1);
+        expect(endPosition.y).toEqual(0);
+        expect(robot.facing.x).toEqual(0);
+        expect(robot.facing.y).toEqual(-1);
+    });
+
+    it('moves west after rotating right three times', function() {
+        let robot = new Mk2();
+        let start: Coordinate = { x: 1, y: 1 };
+        let commandSequence: string = 'RRRF';
+        let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
+        expect(endPosition.x).toEqual(0);
+        expect(endPosition.y).toEqual(1);
+        expect(robot.facing.x).toEqual(-1);
+        expect(robot.facing.y).toEqual(0);
+    });
+
+    it('moves north after rotating right four times', function() {
+        let robot = new Mk2();
+        let start: Coordinate = { x: 1, y: 1 };
+        let commandSequence: string = 'RRRRF';
+        let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
+        expect(endPosition.x).toEqual(1);
+        expect(endPosition.y).toEqual(2);
+        expect(robot.facing.x).toEqual(0);
+        expect(robot.facing.y).toEqual(1);
     });
 
     it('moves south when going backward', function() {
