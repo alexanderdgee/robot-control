@@ -1,8 +1,9 @@
 import Coordinate = require('./coordinate');
-import navigate = require('./navigate');
+import Mk1 = require('./robots/mk1');
 
 function runTest(start: Coordinate, commandSequence: string): void {
-    let endPosition: Coordinate = navigate(start.x, start.y, commandSequence);
+    let robot = new Mk1();
+    let endPosition: Coordinate = robot.navigate(start.x, start.y, commandSequence);
     console.log(`Start position: (${start.x}, ${start.y}); command sequence: ${commandSequence};`
             + ` end position: (${endPosition.x}, ${endPosition.y})`);
 }
